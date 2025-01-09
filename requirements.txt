@@ -6,4 +6,5 @@ python-multipart==0.0.5
 from_root
 boto3==1.24.82
 annoy==1.17.1
+python-dotenv
 -e .

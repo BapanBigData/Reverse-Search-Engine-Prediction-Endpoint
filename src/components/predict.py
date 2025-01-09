@@ -39,7 +39,14 @@ class Prediction:
 
     def load_model(self):
         model = NeuralNet()
-        model.load_state_dict(torch.load(self.config.MODEL_PATHS[1][0], map_location=self.device))
+        
+        model.load_state_dict(torch.load(
+        self.config.MODEL_PATHS[1][0], 
+        map_location=self.device,
+        weights_only=True  # Explicitly set to load weights only
+            ))
+        
+        model = model.to(self.device)
         return nn.Sequential(*list(model.children())[:-1])
 
     def transformations(self):

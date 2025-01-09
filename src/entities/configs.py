@@ -1,5 +1,9 @@
 import os
 from from_root import from_root
+from dotenv import load_dotenv
+
+# Load .env variables
+load_dotenv()
 
 
 class AwsStorage:
@@ -8,8 +12,8 @@ class AwsStorage:
         self.SECRET_KEY = os.environ["AWS_SECRET_ACCESS_KEY"]
         self.REGION_NAME = os.environ["AWS_REGION"]
         self.BUCKET_NAME = os.environ["AWS_BUCKET_NAME"]
-        self.KEY = "model"
-        self.ZIP_NAME = "model/artifacts.tar.gz"
+        self.KEY = "models"
+        self.ZIP_NAME = "models/artifacts.tar.gz"
         self.ARTIFACTS_ROOT = os.path.join(from_root(), "artifacts")
         self.ARTIFACTS_PATH = os.path.join(from_root(), "artifacts", "artifacts.tar.gz")
 
